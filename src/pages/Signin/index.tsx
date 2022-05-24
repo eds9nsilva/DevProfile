@@ -2,9 +2,10 @@ import React from 'react';
 import { ScrollView } from 'react-native';
 import { Button } from '../../components/Form/Button';
 import { Input } from '../../components/Form/Input/indext';
-import { Container, Content, Title } from './styles';
+import { Container, Content, Logo, Title } from './styles';
+import logo from '../../assets/logo.png';
 
-export const Signin: React.FunctionComponent = () => {
+export const SignIn: React.FunctionComponent = () => {
   return (
     <ScrollView
       keyboardShouldPersistTaps="handled"
@@ -12,6 +13,7 @@ export const Signin: React.FunctionComponent = () => {
     >
       <Container>
         <Content>
+          <Logo source={logo} />
           <Title>Faça seu logon</Title>
           <Input placeholder="E-mail" />
           <Input placeholder="Senha" />
