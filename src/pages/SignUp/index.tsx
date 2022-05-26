@@ -2,7 +2,15 @@ import React from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import { Button } from '../../components/Form/Button';
 import { Input } from '../../components/Form/Input/indext';
-import { BackToSgnin, BackToSgninTitle, Container, Content, Icon, Logo, Title } from './styles';
+import {
+  BackToSgnin,
+  BackToSgninTitle,
+  Container,
+  Content,
+  Icon,
+  Logo,
+  Title,
+} from './styles';
 import logo from '../../assets/logo.png';
 
 export const SignUp: React.FunctionComponent = () => {
