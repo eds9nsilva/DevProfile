@@ -3,7 +3,7 @@ import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import { Button } from '../../components/Form/Button';
-import { Input } from '../../components/Form/Input/indext';
+import { Input } from '../../components/Form/Input';
 import {
   BackToSgnin,
   BackToSgninTitle,
