@@ -30,7 +30,7 @@ export const SignIn: React.FunctionComponent = () => {
     >
       <ScrollView
         keyboardShouldPersistTaps="handled"
-        contentContainerStyle={{ flex: 1 }}
+        contentContainerStyle={{ flexGrow: 1 }}
       >
         <Container>
           <Content>
