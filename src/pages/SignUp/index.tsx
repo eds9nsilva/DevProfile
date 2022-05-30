@@ -1,9 +1,11 @@
 import React from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
+import { useForm, FieldValues } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 import { Button } from '../../components/Form/Button';
-import { Input } from '../../components/Form/Input';
+import { InputControll } from '../../components/Form/InputControl/indext';
 import {
   BackToSgnin,
   BackToSgninTitle,
@@ -20,8 +22,33 @@ export const SignUp: React.FunctionComponent = () => {
     navigate: (screem: string) => void;
   }
 
-  const navigation = useNavigation<ScreenNavigationProp>();
+  interface IForm {
+    [name: string]: any;
+  }
 
+  const formSchema = yup.object({
+    email: yup.string().email('Email inválido.').required('Informe o email'),
+    name: yup.string().required('Informe o nome completo'),
+    password: yup.string().required('Informe a senha.'),
+  });
+
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm<FieldValues>({
+    resolver: yupResolver(formSchema),
+  });
+
+  const navigation = useNavigation<ScreenNavigationProp>();
+  const handleSignUp = (form: IForm) => {
+    const data = {
+      name: form.name,
+      email: form.email,
+      password: form.password,
+    };
+    console.log(data);
+  };
   return (
     <KeyboardAvoidingView
       enabled
@@ -38,10 +65,33 @@ export const SignUp: React.FunctionComponent = () => {
           <Content>
             <Logo source={logo} />
             <Title>Crie sua conta</Title>
-            <Input placeholder="Nome completo" />
-            <Input placeholder="E-mail" />
-            <Input placeholder="Senha" />
-            <Button title="Criar conta" />
+            <InputControll
+              autoCapitalize="none"
+              autoCorrect={false}
+              control={control}
+              name="name"
+              placeholder="Nome Completo"
+              error={errors.name && errors.name.message}
+            />
+            <InputControll
+              autoCapitalize="none"
+              autoCorrect={false}
+              control={control}
+              name="email"
+              placeholder="E-mail"
+              keyboardType="email-address"
+              error={errors.email && errors.email.message}
+            />
+            <InputControll
+              autoCapitalize="none"
+              autoCorrect={false}
+              control={control}
+              name="password"
+              placeholder="Senha"
+              secureTextEntry
+              error={errors.password && errors.password.message}
+            />
+            <Button title="Criar conta" onPress={handleSubmit(handleSignUp)} />
           </Content>
         </Container>
       </ScrollView>

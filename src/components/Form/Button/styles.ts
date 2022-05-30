@@ -9,6 +9,7 @@ export const Container = styled(TouchableOpacity)`
   padding: 18px;
   margin-top: ${RFValue(16)}px;
   border-radius: 8px;
+  margin-bottom: ${RFValue(20)}px;
 `;
 
 export const Title = styled.Text`
