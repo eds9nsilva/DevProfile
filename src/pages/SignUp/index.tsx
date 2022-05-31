@@ -1,11 +1,17 @@
 import React from 'react';
-import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
+import {
+  Alert,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useForm, FieldValues } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { Button } from '../../components/Form/Button';
 import { InputControll } from '../../components/Form/InputControl/indext';
+import { api } from '../../services/api';
 import {
   BackToSgnin,
   BackToSgninTitle,
@@ -41,13 +47,21 @@ export const SignUp: React.FunctionComponent = () => {
   });
 
   const navigation = useNavigation<ScreenNavigationProp>();
-  const handleSignUp = (form: IForm) => {
+  const handleSignUp = async (form: IForm) => {
     const data = {
       name: form.name,
       email: form.email,
       password: form.password,
     };
-    console.log(data);
+    Alert.alert('Cadastro realizado', 'Você já pode fazer login na aplicação');
+    try {
+      await api.post('users', data);
+    } catch (error) {
+      Alert.alert(
+        'Erro no cadastro',
+        'Ocorreu um erro ao fazer o cadastro. Tente novamente',
+      );
+    }
   };
   return (
     <KeyboardAvoidingView
