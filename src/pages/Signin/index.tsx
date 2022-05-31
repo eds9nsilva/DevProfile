@@ -1,5 +1,11 @@
 import React from 'react';
-import { ScrollView, KeyboardAvoidingView, Platform, View } from 'react-native';
+import {
+  ScrollView,
+  KeyboardAvoidingView,
+  Platform,
+  View,
+  Alert,
+} from 'react-native';
 import { useForm, FieldValues } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -34,9 +40,8 @@ const formSchema = yup.object({
 });
 
 export const SignIn: React.FunctionComponent = () => {
-  const auth = React.useContext(AuthContext);
+  const { SignIn } = React.useContext(AuthContext);
   const [loading, setLoading] = React.useState(false);
-  console.log(auth);
   const {
     handleSubmit,
     control,
@@ -47,13 +52,13 @@ export const SignIn: React.FunctionComponent = () => {
 
   const navigation = useNavigation<ScreenNavigationProp>();
 
-  const handleSignIn = (form: IForm) => {
+  const handleSignIn = async (form: IForm) => {
     const data = {
       email: form.email,
       password: form.password,
     };
     setLoading(true);
-    auth.SignIn();
+    await SignIn(data);
   };
 
   return (
