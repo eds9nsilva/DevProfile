@@ -76,3 +76,4 @@ export const Icon = styled(Feather)`
   font-size: ${RFValue(28)}px;
   color: ${({ theme }) => theme.colors.dark};
 `;
+
