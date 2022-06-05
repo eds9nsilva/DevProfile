@@ -55,7 +55,7 @@ export const ForgotPassword: React.FunctionComponent = () => {
         'E-mail enviado',
         'Você receberar email com as instruções para redefinição da senha.',
       );
-      navigation.navigate('SignIn');
+      navigation.navigate('ResertPassword');
     } catch (error) {
       Alert.alert(
         'Erro no envio de email',
