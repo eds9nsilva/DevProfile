@@ -53,8 +53,11 @@ export const SignUp: React.FunctionComponent = () => {
       email: form.email,
       password: form.password,
     };
-    Alert.alert('Cadastro realizado', 'Você já pode fazer login na aplicação');
     try {
+      Alert.alert(
+        'Cadastro realizado',
+        'Você já pode fazer login na aplicação',
+      );
       await api.post('users', data);
     } catch (error) {
       Alert.alert(
