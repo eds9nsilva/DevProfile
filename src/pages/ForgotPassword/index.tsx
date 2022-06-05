@@ -89,7 +89,7 @@ export const ForgotPassword: React.FunctionComponent = () => {
               error={errors.email && errors.email.message}
             />
             <Button
-              title="Entrar"
+              title="Enviar"
               onPress={handleSubmit(handleForgotPassword)}
             />
           </Content>
