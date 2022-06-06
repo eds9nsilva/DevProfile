@@ -1,6 +1,8 @@
 import styled from 'styled-components/native';
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { Feather } from '@expo/vector-icons';
+import { FlatList, FlatListProps } from 'react-native';
+import { IUser } from '../../model/user';
 
 export const Container = styled.View`
   flex: 1;
@@ -77,3 +79,11 @@ export const Icon = styled(Feather)`
   color: ${({ theme }) => theme.colors.dark};
 `;
 
+export const UserList = styled(
+  FlatList as new (props: FlatListProps<IUser>) => FlatList<IUser>,
+).attrs({
+  contentContainerStyle: {
+    padding: 24,
+  },
+  showVerticalScrollIndicator: false,
+})``;

@@ -1,5 +1,6 @@
 import React from 'react';
 import AvatarDefault from '../../assets/avatar02.png';
+import { IUser } from '../../model/user';
 import {
   Container,
   EmailData,
@@ -12,20 +13,27 @@ import {
   UserNameDetail,
 } from './styles';
 
-export const User: React.FunctionComponent = () => {
+interface UserProps {
+  data: IUser;
+  onPress: () => void;
+}
+
+export const User: React.FunctionComponent<UserProps> = ({ data, onPress }) => {
   return (
-    <Container>
+    <Container onPress={onPress}>
       <UserDetail>
         <UserNameDetail>
-          <NameTitle> Edson </NameTitle>
-          <NameData> Edson developer </NameData>
+          <NameTitle> Name </NameTitle>
+          <NameData> {data.name} </NameData>
         </UserNameDetail>
         <UserEmailDetail>
           <EmailTitle> Email </EmailTitle>
-          <EmailData> Email de Edson </EmailData>
+          <EmailData> {data.email} </EmailData>
         </UserEmailDetail>
       </UserDetail>
-      <UserAvatar />
+      <UserAvatar
+        source={data.avatar_url ? { uri: data.avatar_url } : AvatarDefault}
+      />
     </Container>
   );
 };

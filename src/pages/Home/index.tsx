@@ -11,12 +11,16 @@ import {
   UserWrapper,
   Icon,
   LogoutButton,
+  UserList,
+  UserListEmpty,
+  UserListHeader,
 } from './styles';
 import avatarDefault from '../../assets/avatar02.png';
 import { useAuth } from '../../context/AuthContext';
 import { Alert } from 'react-native';
 import { IUser } from '../../model/user';
 import { api } from '../../services/api';
+import { User } from '../../components/User';
 
 export const Home: React.FunctionComponent = () => {
   const [users, setUsers] = React.useState<IUser[]>([]);
@@ -64,6 +68,15 @@ export const Home: React.FunctionComponent = () => {
           </LogoutButton>
         </UserWrapper>
       </Header>
+      <UserList
+        data={users}
+        keyExtractor={item => item.id}
+        renderItem={({ item }) => <User data={item} onPress={() => {}} />}
+        ListHeaderComponent={<UserListHeader>Usuários</UserListHeader>}
+        ListEmptyComponent={
+          <UserListEmpty>Ops! Ainda não há registros.</UserListEmpty>
+        }
+      />
     </Container>
   );
 };

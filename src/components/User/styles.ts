@@ -1,7 +1,8 @@
 import { RFValue } from 'react-native-responsive-fontsize';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
+import { RectButton } from 'react-native-gesture-handler';
 
-export const Container = styled.view`
+export const Container = styled(RectButton)`
   width: 100%;
   height: ${RFValue(100)}px;
   background-color: ${({ theme }) => theme.colors.gray800};
@@ -13,41 +14,41 @@ export const Container = styled.view`
   margin: 8px 0;
 `;
 
-export const UserDetail = styled.view``;
+export const UserDetail = styled.View``;
 
-export const UserNameDetail = styled.view`
+export const UserNameDetail = styled.View`
   margin-bottom: 16px;
 `;
 
-export const NameTitle = styled.text`
+export const NameTitle = styled.Text`
   font-family: ${({ theme }) => theme.fonts.regular};
   color: ${({ theme }) => theme.colors.light};
   font-size: ${RFValue(8)}px;
   text-transform: uppercase;
 `;
 
-export const NameData = styled.text`
+export const NameData = styled.Text`
   font-family: ${({ theme }) => theme.fonts.regular};
   color: ${({ theme }) => theme.colors.primary};
   font-size: ${RFValue(14)}px;
 `;
 
-export const UserEmailDetail = styled.view``;
+export const UserEmailDetail = styled.View``;
 
-export const EmailTitle = styled.text`
+export const EmailTitle = styled.Text`
   font-family: ${({ theme }) => theme.fonts.regular};
   color: ${({ theme }) => theme.colors.light};
   font-size: ${RFValue(8)}px;
   text-transform: uppercase;
 `;
 
-export const EmailData = styled.view`
+export const EmailData = styled.Text`
   font-family: ${({ theme }) => theme.fonts.regular};
   color: ${({ theme }) => theme.colors.primary};
   font-size: ${RFValue(14)}px;
 `;
 
-export const UserAvatar = styled.image`
+export const UserAvatar = styled.Image`
   width: ${RFValue(48)}px;
   height: ${RFValue(48)}px;
   border-radius: 10px;
