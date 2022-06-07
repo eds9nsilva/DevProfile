@@ -10,7 +10,7 @@ import { useForm, FieldValues } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { Button } from '../../components/Form/Button';
-import { InputControll } from '../../components/Form/InputControl/indext';
+import { InputControl } from '../../components/Form/InputControl';
 import { api } from '../../services/api';
 import {
   BackToSgnin,
@@ -85,7 +85,7 @@ export const ResertPassword: React.FunctionComponent = () => {
           <Content>
             <Logo source={logo} />
             <Title>Redefinir senha</Title>
-            <InputControll
+            <InputControl
               autoCapitalize="none"
               autoCorrect={false}
               control={control}
@@ -93,7 +93,7 @@ export const ResertPassword: React.FunctionComponent = () => {
               placeholder="Código"
               error={errors.token && errors.token.message}
             />
-            <InputControll
+            <InputControl
               autoCapitalize="none"
               autoCorrect={false}
               control={control}
@@ -102,7 +102,7 @@ export const ResertPassword: React.FunctionComponent = () => {
               secureTextEntry
               error={errors.password && errors.password.message}
             />
-            <InputControll
+            <InputControl
               autoCapitalize="none"
               autoCorrect={false}
               control={control}

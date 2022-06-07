@@ -10,7 +10,7 @@ import { useForm, FieldValues } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { Button } from '../../components/Form/Button';
-import { InputControll } from '../../components/Form/InputControl/indext';
+import { InputControl } from '../../components/Form/InputControl';
 import { api } from '../../services/api';
 import {
   BackToSgnin,
@@ -79,7 +79,7 @@ export const ForgotPassword: React.FunctionComponent = () => {
           <Content>
             <Logo source={logo} />
             <Title>Esqueci minha senha</Title>
-            <InputControll
+            <InputControl
               autoCapitalize="none"
               autoCorrect={false}
               control={control}

@@ -9,7 +9,7 @@ interface Props extends TextInputProps {
   name: string;
   error: string | undefined;
 }
-export const InputControll: React.FunctionComponent<Props> = ({
+export const InputControl: React.FunctionComponent<Props> = ({
   control,
   name,
   error,

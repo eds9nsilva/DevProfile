@@ -17,7 +17,7 @@ import {
   Title,
 } from './styles';
 import logo from '../../assets/logo.png';
-import { InputControll } from '../../components/Form/InputControl/indext';
+import { InputControl } from '../../components/Form/InputControl';
 import { useAuth } from '../../context/AuthContext';
 
 interface ScreenNavigationProp {
@@ -71,7 +71,7 @@ export const SignIn: React.FunctionComponent = () => {
             <View>
               <Title>Faça seu logon</Title>
             </View>
-            <InputControll
+            <InputControl
               autoCapitalize="none"
               autoCorrect={false}
               control={control}
@@ -80,7 +80,7 @@ export const SignIn: React.FunctionComponent = () => {
               keyboardType="email-address"
               error={errors.email && errors.email.message}
             />
-            <InputControll
+            <InputControl
               autoCapitalize="none"
               autoCorrect={false}
               control={control}
